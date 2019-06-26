@@ -4,7 +4,7 @@ import {
 
 function validateEnv() {
   cleanEnv(process.env, {
-    JWT_SECRET: str(),
+    // JWT_SECRET: str(),
     POSTGRES_HOST: str(),
     POSTGRES_PORT: port(),
     POSTGRES_USER: str(),

@@ -1,10 +1,13 @@
-import 'dotenv/config';
-import 'reflect-metadata';
+import * as dotEnv from 'dotenv';
+dotEnv.config();
+// require('dotenv').config();
+import { } from 'reflect-metadata';
 import { createConnection } from 'typeorm';
 import App from './app';
 import config from './ormconfig';
 import PostController from './post/post.controller';
 import validateEnv from './utils/validateEnv';
+
 
 validateEnv();
 
