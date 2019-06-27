@@ -6,6 +6,7 @@ import { createConnection } from 'typeorm';
 import App from './app';
 import config from './ormconfig';
 import PostController from './post/post.controller';
+import UserController from './user/user.controller';
 import validateEnv from './utils/validateEnv';
 
 validateEnv();
@@ -20,6 +21,7 @@ validateEnv();
   const app = new App(
     [
       new PostController(),
+      new UserController(),
     ],
   );
   app.listen();

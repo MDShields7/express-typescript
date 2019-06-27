@@ -1,10 +1,10 @@
-import { IsString } from 'class-validator';
+import { IsBoolean, IsString } from 'class-validator';
 
 class CreateUserDto {
   @IsString()
   public name: string;
 
-  @IsString()
+  @IsBoolean()
   public admin: boolean;
 }
 

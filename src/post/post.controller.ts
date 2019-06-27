@@ -14,7 +14,6 @@ class PostController implements Controller {
   constructor() {
     this.initializeRoutes();
   }
-
   private initializeRoutes() {
     this.router.post(this.path, validationMiddleware(CreatePostDto), this.createPost);
     this.router.get(this.path, this.getAllPosts);
@@ -22,19 +21,16 @@ class PostController implements Controller {
     this.router.patch(`${this.path}/:id`, validationMiddleware(CreatePostDto, true), this.modifyPost);
     this.router.delete(`${this.path}/:id`, this.deletePost);
   }
-
   private createPost = async (request: express.Request, response: express.Response) => {
     const postData: CreatePostDto = request.body;
     const newPost = this.postRepository.create(postData);
     await this.postRepository.save(newPost);
     response.send(newPost);
   }
-
   private getAllPosts = async (request: express.Request, response: express.Response) => {
     const posts = await this.postRepository.find();
     response.send(posts);
   }
-
   private getPostById = async (request: express.Request, response: express.Response, next: express.NextFunction) => {
     const id = request.params.id;
     const post = await this.postRepository.findOne(id);
@@ -44,7 +40,6 @@ class PostController implements Controller {
       next(new PostNotFoundException(id));
     }
   }
-
   private modifyPost = async (request: express.Request, response: express.Response, next: express.NextFunction) => {
     const id = request.params.id;
     const postData: Post = request.body;
@@ -56,7 +51,6 @@ class PostController implements Controller {
       next(new PostNotFoundException(id));
     }
   }
-
   private deletePost = async (request: express.Request, response: express.Response, next: express.NextFunction) => {
     const id = request.params.id;
     const deleteResponse = await this.postRepository.delete(id);
