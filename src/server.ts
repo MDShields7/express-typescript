@@ -8,7 +8,6 @@ import config from './ormconfig';
 import PostController from './post/post.controller';
 import validateEnv from './utils/validateEnv';
 
-
 validateEnv();
 
 (async () => {

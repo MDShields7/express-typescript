@@ -1,4 +1,6 @@
-import { IsString } from 'class-validator';
+import { IsNumber, IsString } from 'class-validator';
+import CreateUserDto from '../user/user.dto';
+import User from '../user/user.entity';
 
 class CreatePostDto {
   @IsString()
@@ -6,6 +8,9 @@ class CreatePostDto {
 
   @IsString()
   public title: string;
+
+  // @IsNumber()
+  // public author: number;
 }
 
 export default CreatePostDto;
